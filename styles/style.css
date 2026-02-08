@@ -22,7 +22,20 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Отступ для sticky header при прокрутке к якорям */
+  scroll-padding-top: 100px; /* Отступ для sticky header при прокрутке к якорям (Desktop) */
+}
+
+/* Адаптивный scroll-padding для мобильных */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 80px; /* Меньший отступ для мобильных */
+  }
+}
+
+@media (max-width: 575px) {
+  html {
+    scroll-padding-top: 70px; /* Еще меньший отступ для маленьких экранов */
+  }
 }
 
 body {
@@ -617,8 +630,13 @@ img {
 @media (max-width: 767px) {
   .header {
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    min-height: auto;
+  }
+
+  .header__logo img {
+    height: 40px; /* Уменьшаем логотип на мобильных */
   }
 
   .nav__list {
@@ -673,6 +691,24 @@ img {
 
 /* Мобильные (меньше 576px) */
 @media (max-width: 575px) {
+  .header {
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .header__logo img {
+    height: 35px; /* Еще меньше логотип на маленьких экранах */
+  }
+
+  .nav__list {
+    gap: 0.5rem;
+  }
+
+  .nav__link {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
   .home__title {
     font-size: 1.75rem;
   }
@@ -701,6 +737,23 @@ img {
 
 /* Очень маленькие экраны (меньше 400px) */
 @media (max-width: 399px) {
+  html {
+    scroll-padding-top: 60px; /* Минимальный отступ для очень маленьких экранов */
+  }
+
+  .header {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .header__logo img {
+    height: 30px; /* Минимальный размер логотипа */
+  }
+
+  .nav__link {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
   .home__title {
     font-size: 1.5rem;
   }
