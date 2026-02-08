@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Отступ для sticky header при прокрутке к якорям */
 }
 
 body {
