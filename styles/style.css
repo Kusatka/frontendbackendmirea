@@ -40,6 +40,7 @@ html {
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px; /* Минимум для Material Design */
   line-height: 1.6;
   color: #333;
   background-color: #fff;
@@ -56,16 +57,21 @@ img {
    ============================================ */
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
   transition: all 0.3s ease;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .header__logo {
@@ -506,6 +512,61 @@ img {
 
 .fade-in {
   animation: fadeIn 0.6s ease-in;
+}
+
+/* ============================================
+   Кнопка "Наверх" (Scroll to Top)
+   ============================================ */
+
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background: #2c5530;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  min-height: 56px;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background: #1e3a23;
+  transform: scale(1.1);
+}
+
+.scroll-top:active {
+  transform: scale(0.95);
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .scroll-top {
+    width: 52px;
+    height: 52px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 22px;
+    min-width: 52px;
+    min-height: 52px;
+  }
 }
 
 /* ============================================
