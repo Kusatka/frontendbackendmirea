@@ -1,0 +1,506 @@
+/* ============================================
+   Практическое занятие 3: CSS методологии (BEM)
+   ============================================ */
+
+/* ============================================
+   Шаг 1: Подключение шрифтов
+   ============================================ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   Базовые стили (Reset & Base)
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   Блок: Header (BEM)
+   ============================================ */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.header__logo:hover img {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   Блок: Navigation (BEM)
+   ============================================ */
+
+.nav {
+  display: flex;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+}
+
+.nav__link:hover {
+  background-color: #f0f0f0;
+  color: #2c5530;
+  transform: translateY(-2px);
+}
+
+.nav__link:focus {
+  outline: 2px solid #2c5530;
+  outline-offset: 2px;
+}
+
+.nav__link:active {
+  transform: translateY(0);
+}
+
+.nav__item--active .nav__link {
+  color: #2c5530;
+  border-bottom: 2px solid #2c5530;
+}
+
+/* ============================================
+   Блок: Main
+   ============================================ */
+
+.main {
+  min-height: calc(100vh - 200px);
+}
+
+/* ============================================
+   Блок: Section (BEM)
+   ============================================ */
+
+.section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #2c5530;
+  text-align: center;
+}
+
+.section__text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* ============================================
+   Блок: Home Section (BEM)
+   ============================================ */
+
+.home {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.home__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2c5530;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.home__banner {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home__banner:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.home__text {
+  font-size: 1.25rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Блок: About Section (BEM)
+   ============================================ */
+
+.about {
+  background-color: #fff;
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about__text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about__image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about__image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   Блок: Menu Section (BEM)
+   ============================================ */
+
+.menu {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.menu__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #2c5530;
+}
+
+.menu__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* ============================================
+   Блок: Card (BEM)
+   ============================================ */
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card--featured {
+  background: linear-gradient(135deg, #2c5530 0%, #1e3a22 100%);
+  color: #fff;
+}
+
+.card--featured .card__title,
+.card--featured .card__text {
+  color: #fff;
+}
+
+.card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card__image {
+  transform: scale(1.05);
+}
+
+.card__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #2c5530;
+}
+
+.card__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* ============================================
+   Блок: Gallery Section (BEM)
+   ============================================ */
+
+.gallery {
+  background-color: #fff;
+}
+
+.gallery__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #2c5530;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery__image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery__item:hover .gallery__image {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   Блок: Contact Section (BEM)
+   ============================================ */
+
+.contact {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contact__title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #2c5530;
+}
+
+.contact__info {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact__item {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #555;
+  padding: 0.75rem;
+  background-color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact__item:hover {
+  background-color: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.contact__link {
+  color: #2c5530;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact__link:hover {
+  color: #1e3a22;
+  text-decoration: underline;
+}
+
+.contact__link:focus {
+  outline: 2px solid #2c5530;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Блок: Footer (BEM)
+   ============================================ */
+
+.footer {
+  background-color: #2c5530;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer__text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer__text:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Анимации
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+/* ============================================
+   Адаптивность (Responsive)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav__link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .home__title {
+    font-size: 2rem;
+  }
+
+  .section__title,
+  .menu__title,
+  .gallery__title,
+  .contact__title {
+    font-size: 2rem;
+  }
+
+  .about__content {
+    grid-template-columns: 1fr;
+  }
+
+  .menu__grid,
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home__title {
+    font-size: 1.5rem;
+  }
+
+  .section__title,
+  .menu__title,
+  .gallery__title,
+  .contact__title {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
