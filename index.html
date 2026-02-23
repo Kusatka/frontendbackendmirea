@@ -11,12 +11,19 @@
 
 <body>
 <header class="header">
-<div class="header__logo">
+<div class="container">
+<div class="header__inner">
+<a href="#home" class="logo header__logo">
 <img src="assets/img/LOGO.png" alt="Логотип кофейни" width="150" height="50">
-</div>
-<nav class="header__nav nav">
+</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+<span class="menu-toggle__line"></span>
+<span class="menu-toggle__line"></span>
+<span class="menu-toggle__line"></span>
+</button>
+<nav class="nav" id="mainNav">
 <ul class="nav__list">
-<li class="nav__item"><a class="nav__link" href="#home">Главная</a></li>
+<li class="nav__item"><a class="nav__link active" href="#home">Главная</a></li>
 <li class="nav__item"><a class="nav__link" href="#features">Преимущества</a></li>
 <li class="nav__item"><a class="nav__link" href="#about">О&nbsp;нас</a></li>
 <li class="nav__item"><a class="nav__link" href="#menu">Меню</a></li>
@@ -24,6 +31,9 @@
 <li class="nav__item"><a class="nav__link" href="#contact">Контакты</a></li>
 </ul>
 </nav>
+<button class="btn btn--primary header__cta">Заказать</button>
+</div>
+</div>
 </header>
 
 <main class="main">

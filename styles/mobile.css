@@ -4,12 +4,20 @@
 
 /* Планшет (1024px и меньше) */
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
     .header__inner {
         padding: 15px 0;
     }
     
     .nav__list {
         gap: 20px;
+    }
+    
+    .header__cta {
+        display: none; /* Скрываем CTA на планшетах */
     }
 }
 
@@ -60,6 +68,7 @@
         background: transparent;
         color: #2c5530;
         padding-left: 10px;
+        transform: none;
     }
     
     /* Затемнение фона при открытом меню */

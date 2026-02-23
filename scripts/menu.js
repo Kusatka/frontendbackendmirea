@@ -22,7 +22,7 @@ function toggleMenu() {
 }
 
 // Обработчики событий
-menuToggle.addEventListener('click', toggleMenu);
+if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
 navOverlay.addEventListener('click', toggleMenu);
 
 // Закрытие меню при клике на ссылку
@@ -52,19 +52,21 @@ window.addEventListener('resize', () => {
 // Кнопка "Наверх"
 const scrollTopButton = document.getElementById('scrollTop');
 
-// Показываем кнопку после скролла
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollTopButton.classList.add('visible');
-    } else {
-        scrollTopButton.classList.remove('visible');
-    }
-});
-
-// Прокрутка к началу страницы
-scrollTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (scrollTopButton) {
+    // Показываем кнопку после скролла
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopButton.classList.add('visible');
+        } else {
+            scrollTopButton.classList.remove('visible');
+        }
     });
-});
+
+    // Прокрутка к началу страницы
+    scrollTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
